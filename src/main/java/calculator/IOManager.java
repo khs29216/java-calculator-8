@@ -16,4 +16,13 @@ public class IOManager {
         System.out.println("덧셈할 문자열을 입력해 주세요.");
         return scanner.nextLine();
     }
+
+    // 결과를 출력하는 메서드
+    public void printResult(double num) {
+        String result = (num == (long) num)
+                ? String.format("%d", (long) num)
+                : String.format("%f", num);
+
+        System.out.println("결과 : " + result);
+    }
 }
