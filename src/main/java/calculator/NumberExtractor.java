@@ -25,7 +25,7 @@ public class NumberExtractor {
         List<Double> extractNumbers = new ArrayList<>();
         for (String num : numbers) {
             if (!num.matches("\\d+")) {
-                throw new IllegalArgumentException("잘못된 입력입니다. " + num);
+                throw new IllegalArgumentException("잘못된 입력 : \"" + num + "\"");
             }
             extractNumbers.add(Double.parseDouble(num));
         }
