@@ -25,9 +25,12 @@ public class NumberExtractor {
         List<Double> extractNumbers = new ArrayList<>();
         for (String num : numbers) {
             num = normalizeEmpty(num); // 빈 문자열 0으로 처리
-            if (!num.matches("\\d+")) {
+
+            // 분리한 문자열이 0, 양의 실수인지 검증
+            if (!isPositiveNumber(num)) {
                 throw new IllegalArgumentException("잘못된 입력 : \"" + num + "\"");
             }
+
             extractNumbers.add(Double.parseDouble(num));
         }
 
@@ -55,5 +58,9 @@ public class NumberExtractor {
 
     private static String normalizeEmpty(String num) {
         return num.isEmpty() ? "0" : num;
+    }
+
+    private static boolean isPositiveNumber(String num) {
+        return num.matches("\\d+(\\.\\d+)?");
     }
 }
