@@ -2,6 +2,8 @@ package calculator;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.text.DecimalFormat;
+
 /*
     IOManager 클래스
     - 역할 : 프로그램의 입력과 출력
@@ -17,11 +19,9 @@ public class IOManager {
     }
 
     // 결과를 출력하는 메서드
-    public void printResult(double num) {
-        String result = (num == (long) num)
-                ? String.format("%d", (long) num)
-                : String.format("%f", num);
-
+    public void printResult(Double num) {
+        DecimalFormat df = new DecimalFormat("#.######"); // 불필요한 0 제거
+        String result = df.format(num);
         System.out.println("결과 : " + result);
     }
 }

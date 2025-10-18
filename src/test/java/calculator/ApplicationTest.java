@@ -41,7 +41,7 @@ class ApplicationTest extends NsTest {
     void 소수_입력() {
         assertSimpleTest(() -> {
             run("//d\\n1.2d2d3\n");
-            assertThat(output()).contains("결과 : 6.200000");
+            assertThat(output()).contains("결과 : 6.2");
         });
     }
 }
