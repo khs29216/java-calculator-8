@@ -15,19 +15,19 @@ import java.util.stream.Collectors;
  */
 public class NumberExtractor {
 
-    public List<Integer> extractNumber(String input, List<String> delimiter) {
+    public List<Double> extractNumber(String input, List<String> delimiter) {
         // 커스텀 구분자를 지정한 경우, 숫자를 입력한 문자열 부분만 추출
         input = extractNumberPart(input);
 
         // 문자열에서 숫자들 각각 분리
         String[] numbers = splitNumber(input, delimiter);
 
-        List<Integer> extractNumbers = new ArrayList<>();
+        List<Double> extractNumbers = new ArrayList<>();
         for (String num : numbers) {
             if (!num.matches("\\d+")) {
                 throw new IllegalArgumentException("잘못된 입력입니다. " + num);
             }
-            extractNumbers.add(Integer.parseInt(num));
+            extractNumbers.add(Double.parseDouble(num));
         }
 
         return extractNumbers;
