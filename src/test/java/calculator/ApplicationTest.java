@@ -28,4 +28,20 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+
+    @Test
+    void 빈_문자열_0으로_처리() {
+        assertSimpleTest(() -> {
+            run("1,,2");
+            assertThat(output()).contains("결과 : 3");
+        });
+    }
+
+    @Test
+    void 소수_입력() {
+        assertSimpleTest(() -> {
+            run("//d\\n1.2d2d3\n");
+            assertThat(output()).contains("결과 : 6.200000");
+        });
+    }
 }
