@@ -19,7 +19,7 @@ class DelimiterExtractorTest {
         DelimiterExtractor delimiterExtractor = new DelimiterExtractor();
 
         // when
-        List<String> result = delimiterExtractor.delimiterExtract(testInput);
+        List<String> result = delimiterExtractor.extractDelimiter(testInput);
 
         // then
         assertEquals(testDelimiter, result);
@@ -34,7 +34,7 @@ class DelimiterExtractorTest {
         DelimiterExtractor delimiterExtractor = new DelimiterExtractor();
 
         // when
-        List<String> result = delimiterExtractor.delimiterExtract(testInput);
+        List<String> result = delimiterExtractor.extractDelimiter(testInput);
 
         // then
         assertEquals(testDelimiter, result);

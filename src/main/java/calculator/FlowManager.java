@@ -18,7 +18,7 @@ public class FlowManager {
 
         // 2. 입력된 문자열에서 구분자 추출
         DelimiterExtractor delimiterExtractor = new DelimiterExtractor();
-        List<String> strings = delimiterExtractor.delimiterExtract(input);
+        List<String> strings = delimiterExtractor.extractDelimiter(input);
 
         // 3. 입력된 문자열에서 숫자 추출
         NumberExtractor extractor = new NumberExtractor();

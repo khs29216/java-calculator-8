@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  */
 public class DelimiterExtractor {
 
-    public List<String> delimiterExtract(String input) {
+    public List<String> extractDelimiter(String input) {
         List<String> delimiters = new ArrayList<>(Arrays.asList(",", ":"));
         String regex = "^//([^\\d\\s.])\\\\n.*";
         if (isRegexMatch(regex, input)) {
