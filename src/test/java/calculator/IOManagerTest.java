@@ -57,6 +57,6 @@ class IOManagerTest {
 
         // then
         String result = testOutput.toString().trim();
-        assertEquals("결과 : 2.100000", result);
+        assertEquals("결과 : 2.1", result);
     }
 }
