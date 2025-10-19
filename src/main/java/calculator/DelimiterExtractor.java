@@ -14,20 +14,16 @@ import java.util.regex.Pattern;
  */
 public class DelimiterExtractor {
 
-    public List<String> extractDelimiter(String input) {
-        List<String> delimiters = new ArrayList<>(Arrays.asList(",", ":"));
-        String regex = "^//([^\\d\\s.])\\\\n.*";
-        if (isRegexMatch(regex, input)) {
-            Matcher matcher = Pattern.compile(regex).matcher(input);
-            if (matcher.find()) {
-                String customDelimiter = matcher.group(1);
-                delimiters = new ArrayList<>(Arrays.asList(customDelimiter));
-            }
-        }
-        return delimiters;
-    }
+    private static final Pattern CUSTOM_DELIMITER_PATTERN = Pattern.compile("^//([^\\d\\s.])\\\\n.*");
+    private static final List<String> DEFAULT_DELIMITERS = List.of(",", ":");
 
-    private boolean isRegexMatch(String regex, String input) {
-        return Pattern.matches(regex, input);
+    public List<String> extractDelimiter(String input) {
+        Matcher matcher = CUSTOM_DELIMITER_PATTERN.matcher(input);
+
+        if (matcher.matches()) {
+            return List.of(matcher.group(1)); // 커스텀 구분자만 반환
+        }
+
+        return new ArrayList<>(DEFAULT_DELIMITERS); // 기본 구분자 반환
     }
 }
